@@ -39,7 +39,6 @@ def build_url(api_key, offset=0):
         "data[3]=nameplate-capacity-mw",
         "data[4]=operating-year-month",
         "data[5]=planned-retirement-year-month",
-        "data[6]=technology",
         f"facets[stateid][]={STATE}",
         "start=2025-01",
         "sort[0][column]=period",
@@ -59,7 +58,6 @@ def fetch_all(api_key):
     while True:
         url = build_url(api_key, offset)
         print(f"  Fetching offset {offset}...")
-        print(f" URL: {url}")
         try:
             with urlopen(url, timeout=30) as resp:
                 payload = json.loads(resp.read().decode())
@@ -139,7 +137,6 @@ def to_geojson(records):
         props = {
             "plantName":     r.get("plantName")     or "—",
             "entityName":    r.get("entityName")    or "—",
-            "technology":    r.get("technology")    or "—",
             "county":        r.get("county")        or "—",
             "capacityMW":    cap,
             "operatingDate": r.get("operating-year-month")           or "—",
