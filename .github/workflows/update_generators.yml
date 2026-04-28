@@ -24,7 +24,7 @@ jobs:
       - name: Fetch EIA data and generate GeoJSON
         env:
           EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
-        run: python fetch_generators (1).py
+        run: python fetch_generators.py
 
       - name: Check if GeoJSON changed
         id: check_changes
