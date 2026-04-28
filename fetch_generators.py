@@ -65,6 +65,8 @@ def fetch_all(api_key):
                 payload = json.loads(resp.read().decode())
         except URLError as e:
             print(f"ERROR: API request failed — {e}")
+            if hasattr(e, 'read'):
+                print(f"  Response body: {e.read().decode()}")
             sys.exit(1)
 
         data  = payload.get("response", {}).get("data", [])
