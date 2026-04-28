@@ -41,6 +41,7 @@ def build_url(api_key, offset=0):
         "data[5]=planned-retirement-year-month",
         "data[6]=technology",
         f"facets[stateid][]={STATE}",
+        "start=2025-01",
         "sort[0][column]=period",
         "sort[0][direction]=desc",
         f"offset={offset}",
