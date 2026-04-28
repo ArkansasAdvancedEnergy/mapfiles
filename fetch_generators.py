@@ -58,6 +58,7 @@ def fetch_all(api_key):
     while True:
         url = build_url(api_key, offset)
         print(f"  Fetching offset {offset}...")
+        print(f" URL: {url}")
         try:
             with urlopen(url, timeout=30) as resp:
                 payload = json.loads(resp.read().decode())
