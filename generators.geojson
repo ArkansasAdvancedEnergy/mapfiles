@@ -1,0 +1,1 @@
+{"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [-93.0262, 34.4425]}, "properties": {"plantName": "Carpenter", "entityName": "Entergy Arkansas LLC", "county": "Garland", "capacityMW": 28.0, "operatingDate": "1932-01", "retirementDate": "\u2014", "status": "Operating", "generatorId": "\u2014", "period": "2026-02"}}]}
