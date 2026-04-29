@@ -68,7 +68,7 @@ def fetch_all(api_key):
             sys.exit(1)
 
         data  = payload.get("response", {}).get("data", [])
-        total = payload.get("response", {}).get("total", 0)
+        total = int(payload.get("response", {}).get("total", 0))
 
         if not data:
             break
