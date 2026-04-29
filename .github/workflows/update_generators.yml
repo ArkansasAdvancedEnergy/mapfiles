@@ -29,14 +29,14 @@ jobs:
       - name: Check if GeoJSON changed
         id: check_changes
         run: |
-          git diff --quiet generators.geojson && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+          git add generators.geojson
+          git diff --cached --quiet generators.geojson && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
 
       - name: Commit and push updated GeoJSON
         if: steps.check_changes.outputs.changed == 'true'
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add generators.geojson
           git commit -m "Update generators.geojson from EIA 860M ($(date +'%Y-%m'))"
           git push
 
